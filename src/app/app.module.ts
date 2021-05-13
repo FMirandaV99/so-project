@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
