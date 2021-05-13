@@ -1,0 +1,31 @@
+<div class="game-card-container d-flex align-items-end m-3 game-card" [style.background-image]="'url('+game.image+')'">
+
+  <!-- Card front -->
+  <div class="game-card-title card-front-side">
+    <div class="d-flex justify-content-center">
+      <span>{{ game.name }}</span>
+    </div>
+    <div class="game-card-price d-flex justify-content-center">
+      <span>{{ game.actualPrice }}</span>
+      <span *ngIf="game.isOnOffert" style="text-decoration: line-through; font-size: 0.8rem;">{{ game.previusPrice }}</span>
+    </div>
+  </div>
+
+  <!-- Card back -->
+  <div class="game-card-summary card-back-side">
+    <div class="d-flex justify-content-center align-items-center game-title">
+      <span>{{ game.name }}</span>
+    </div>
+    <div class="d-flex justify-content-center">
+      <span>Metacritic: {{ game.metacritic }}</span>
+    </div>
+    <div class="d-flex justify-content-center">
+      <span>How Long To Beat: {{ game.longtobeat }}</span>
+    </div>
+    <hr class="divider" />
+    <div class="game-card-price d-flex justify-content-center">
+      <span>{{ game.actualPrice }}</span>
+      <span *ngIf="game.isOnOffert" style="text-decoration: line-through; font-size: 0.8rem;">{{ game.previusPrice }}</span>
+    </div>
+  </div>
+</div>
