@@ -7,15 +7,16 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class DataService {
 
-    baseURL = 'https://dummyapi.io/data/api/'
-
-    headers = new HttpHeaders({'app-id': '609c8c2a12a8c54e7597cb06'});
-
+    baseURL = 'https://localhost:44386/api'
 
     constructor (private http: HttpClient) { }
 
-    test() {
-        return this.http.get(this.baseURL + 'user', {headers: this.headers} );
+    concurrent(number: string) {
+        return this.http.get(this.baseURL + '/Concurrent/' + number);
+    }
+
+    sequential(number: string) {
+        return this.http.get(this.baseURL + '/Sequencial/' + number);
     }
 
 }

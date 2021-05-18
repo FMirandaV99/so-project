@@ -12,11 +12,28 @@
     </div>
   </nav>
 
+  <div class="container text-center d-flex flex-wrap justify-content-center">
+      <label for="textbox" style="color: white; font-weight: bold; font-size: 20px;" class="mb-3 mt-3">Cantidad de registros</label>
+      <div class="break"></div>
+      <input type="text" class="form-control" style="width: 50%;" id="textbox" placeholder="Cantidad de registros" [(ngModel)]="registros">    
+      <div class="break"></div>
+      <button type="button" class="btn btn-primary btn-lg m-3" (click)="onClickSequential()">Ejecutar secuencial</button>
+      <button type="button" class="btn btn-primary btn-lg m-3" (click)="onClickConcurrent()">Ejecutar concurrente</button>
+      <div class="break"></div>
+      <p *ngIf="mode !== ''" style="color: white; font-weight: bold;">Modo de ejecución: {{ mode }}</p>
+      <p *ngIf="time !== ''" style="color: white; font-weight: bold;">Tiempo: {{ time }} seconds</p>
+    </div>
+
   <!-- Page body -->
   <div class="container d-flex flex-wrap justify-content-center" style="flex: 1; overflow: hidden;">
     <span class="h2 container-header">Juegos disponibles</span>
     <div class="break"></div>
-    <div class="d-flex flex-wrap justify-content-center game-cards-container">
+
+    <div *ngIf="games.length === 0">
+      <span class="h2 container-header">{{  text }}</span>
+    </div>
+
+    <div *ngIf="games.length !== 0" class="d-flex flex-wrap justify-content-center game-cards-container">
       <app-game-card *ngFor="let game of games" [game]="game"></app-game-card>
     </div>
    </div>
